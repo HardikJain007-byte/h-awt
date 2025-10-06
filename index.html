@@ -1,39 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>sapid</h1>
-    <section>
-        <h1></h1>
-        <div>
-            <ul>
-                <li><a href="./class-theory/jquery-pro/index.html"> class unit 1 project</a></li>
-                <li><a href="./class-theory/test.html"> ajax</a></li>
-                <li><a href="./class-theory/ngapp.html"> ngapp</a></li>
-                <li><a href="./class-theory/ngbind.html"> ng bind</a></li>
-                <li><a href="./class-theory/NG-CLICK.html"> ng click</a></li>
-                <li><a href="./class-theory/NG-IF.html">NG IF</a></li>
-                <li><a href="./class-theory/NG-IF1.html"> NG IF1</a></li>
-            </ul>
-        </div>
-    </section>
-    
+<html lang="en" ng-app="myApp">
 
-    
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" <!-- jQuery -- />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+    <h1>AWT Progress</h1>
+    <!-- Using AngularJS -->
     <section>
-        <h1>Lab</h1>
+        <h3>Sap id - 590018567</h3>
+        <h2>Class Theory</h2>
         <div>
             <ul>
-                <li><a href="./lab-adwebtch/index.html">Experiemnt 3 ng-repete</a></li>
-                <li><a href="./lab-adwebtch/exp3/index.html">ANGULARJS TABLES </a></li>
-                <li><a href="./lab-adwebtch/exp4.html">ANGULARJS TABLES </a></li>
-                <li><a href="./lab-adwebtch/billing.html">ANGULARJS TABLES </a></li>
+                <li ng-repeat="link in classLinks">
+                    <a ng-href="{{link.url}}">{{link.text}}</a>
+                </li>
             </ul>
         </div>
     </section>
+
+    <!-- Using jQuery -->
+    <section>
+        <h2>Lab Experiment</h2>
+        <div>
+            <ul id="labLinks"></ul>
+        </div>
+    </section>
+
+        <section>
+        <h2>Lab Report</h2>
+        <div>
+            <ul id="labreportLinks"></ul>
+        </div>
+    </section>
+    <script>
+        // AngularJS App
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.classLinks = [
+                { url: "./class-theory/jquery-pro/index.html",text: "remote link vs local",},
+                { url: "./class-theory/test.html", text: "angular expression" },
+                { url: "./class-theory/ngapp.html", text: "Ng-bind example" },
+                { url: "./class-theory/NG-CLICK.html", text: "Ng-Click example" },
+                { url: "./class-theory/NG-IF1.html", text: "Ng If example" },
+                { url: "./lab-adwebtch/index.html", text: "Ng-Repeat example" },
+            ];
+        });
+
+        // jQuery Appending for Lab Section
+        $(document).ready(function () {
+            var labLinks = [
+                { url: "", text: " "},
+            ];
+
+            $.each(labLinks, function (i, link) {
+                $("#labLinks").append(
+                    '<li><a href="' + link.url + '">' + link.text + "</a></li>"
+                );
+            });
+        });
+
+                $(document).ready(function () {
+            var labreportLinks = [
+                { url: "./lab report/exp1/exp1.html", text: "Experiment 1 JQuerry Demo" },
+                { url: "./lab report/exp2/index.html", text: "Experiment 2 JQuerry CSS & EVENTS" },
+                { url: "./lab-adwebtch/exp3/index.html", text: "Experiment 3 AngularJS Tables" },
+                { url: "./lab-adwebtch/exp4.html", text: "Experiment 4 Registration Form" },
+                { url: "./lab-adwebtch/billing.html", text: "Experiment 4 Billing Form" },
+                { url: "./lab report/exp5 ", text: "Experiment 5&6" },
+                { url: "", text: "Experiment 7 Cookies" },
+                { url: "", text: "Experiment 7 Session" },
+                { url: "", text: "Session-cookie-demo" },
+            ];
+
+            $.each(labreportLinks, function (i, link) {
+                $("#labreportLinks").append(
+                    '<li><a href="' + link.url + '">' + link.text + "</a></li>"
+                );
+            });
+        });
+    </script>
 </body>
+
 </html>
