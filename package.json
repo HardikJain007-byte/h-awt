@@ -1,0 +1,23 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "testing nodejs",
+  "main": "server.js",
+  {
+  "scripts": {
+    "start": "node lab-adwebtch/experiment5/server.js"
+  }
+}
+
+  "repository": {
+    "type": "git",
+    "url": "H-AWT"
+  },
+  "keywords": [
+    "[\"nodejs\"",
+    "\"express\"",
+    "\"lab\"]"
+  ],
+  "author": "Hardik Jain",
+  "license": "ISC"
+}
